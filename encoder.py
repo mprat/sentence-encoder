@@ -35,4 +35,4 @@ if __name__ == '__main__':
 	print "Keyword: %s" % keyword
 	print "Encoded sentence: %s" % encoded_sentence
 	if show_dict:
-		print "Dictionary: %s" % encoder_dict
+		print "Dictionary: %s" % sorted(encoder_dict.items())
