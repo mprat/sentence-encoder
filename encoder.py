@@ -1,5 +1,18 @@
 import argparse
+import string
 
+
+def construct_dictionary(keyword):
+	keyword_letters = set(list(keyword))
+	if len(keyword_letters) != len(keyword):
+		raise ValueError("Keyword should have unique letters")
+
+	lowercase_letters = list(string.ascii_lowercase)
+	for letter in keyword_letters:
+		lowercase_letters.remove(letter)
+	lowercase_letters.reverse()
+	final_string = keyword + "".join(lowercase_letters)
+	return dict(zip(string.ascii_lowercase, final_string))
 
 def encode(sentence, keyword):
 	print "keyword is %s" % keyword
