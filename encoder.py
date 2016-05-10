@@ -14,10 +14,11 @@ def construct_dictionary(keyword):
 	final_string = keyword + "".join(lowercase_letters)
 	return dict(zip(string.ascii_lowercase, final_string))
 
-def encode(sentence, keyword):
-	print "keyword is %s" % keyword
-	return sentence
 
+def encode(sentence, keyword):
+	encoder_dict = construct_dictionary(keyword)
+
+	return "".join(map(lambda x: encoder_dict.get(x, x), sentence))
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser(description="Encode a sentnce with a keyword.")
